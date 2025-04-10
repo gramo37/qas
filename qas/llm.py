@@ -2,7 +2,7 @@ import requests
 import re
 from typing import List
 
-def get_answers_from_model(context: str, questions: List[str], url: str, model_name: str, answer_length = '2-3') -> List[str]:
+def get_answers_from_llm(context: str, questions: List[str], url: str, model_name: str, answer_length = '2-3') -> List[str]:
     headers = {
         "Content-Type": "application/json"
     }

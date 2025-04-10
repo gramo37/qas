@@ -1,4 +1,5 @@
-from qas import get_answers_from_model
+from transformers import pipeline
+from typing import List
 
 industry = "IT/Software"
 tech_experience = 5
@@ -23,8 +24,10 @@ visa_sponsorship_required = "do not"
 languages_spoken = "English and Hindi"
 availability = "immediately"
 
-context_text = f"""
+context = f"""
 I am a Full-stack Developer. 
+No AWS certification.
+Legally authorized to work in India - Yes.
 I have {tech_experience} years of experience in {industry} Industry.
 I know languages like {languages_known}.
 I know tools like {tools_known}.
@@ -41,27 +44,26 @@ My preferred work location is {preferred_location}.
 I am {availability} available.
 I am fluent in {languages_spoken}.
 """
+
 questions = [
-#   "How many years of work experience do you have using React?",
-#   "How many years of experience do you have in IT?",
-#   "Do you have experience with Go?",
+  "How many years of work experience do you have using React?",
+  "How many years of experience do you have in IT?",
+  "Do you have experience with Go?",
   "What is your level of proficiency in React?",
   "Do you have the following license or certification: AWS Certification?",
   "Have you completed the following level of education: Bachelor's Degree?",
   "Are you legally authorized to work in India?",
-#   "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B visa status)?",
-#   "We must fill this position urgently. Can you start immediately?",
-#   "What is your level of proficiency in Javascript?",
-#   "Are you comfortable commuting to this job's location?",
-#   "How much years of experience do you have in React?",
-#   "What backend technologies do you know?",
-#   "What databases are you familiar with?",
-#   "How many years of experience do you have in tech?"
+  "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B visa status)?",
+  "We must fill this position urgently. Can you start immediately?",
+  "What is your level of proficiency in Javascript?",
+  "Are you comfortable commuting to this job's location?",
+  "How much years of experience do you have in React?",
+  "What backend technologies do you know?",
+  "What databases are you familiar with?",
+  "How many years of experience do you have in tech?"
 ]
-url = "http://localhost:1234/v1/chat/completions"
-model = "deepseek-r1-distill-qwen-1.5b"
 
-answers = get_answers_from_model(context_text, questions, url, model)
-print(answers)
+answers = answer_questions(context, questions)
+
 for q, a in zip(questions, answers):
     print(f"Q: {q}\nA: {a}\n")
