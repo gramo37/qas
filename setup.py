@@ -10,7 +10,7 @@ setup(
     description="AI assistant for answering job application questions",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/gramo37/qas",  # Optional
+    url="https://github.com/Job-automation/qas.git",
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
