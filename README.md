@@ -6,10 +6,11 @@ Try:
 pip install qasi==0.1.5
 python -m spacy download en_core_web_sm
 
-How to use
-from qas import nlp
+How to use -> 
 
-t = nlp.QuestionAnsweringNLP()
+from qas import nlp
+import os
+cwd = os.getcwd()
 
 questions = [
   "How many years of work experience do you have using React?",
@@ -25,7 +26,7 @@ temp = {
     "current_work_location": "Chennai"
 }
 
-answers = t.answer("C:/Users/gramo/OneDrive/Desktop/projects/personal projects/my projects/job_automation/linkedin_automation/sample2.pdf", temp, questions)
+answers = t.answer("{cwd}/sample2.pdf", temp, questions)
 
 for q, a in zip(questions, answers):
     print(f"Q: {q}\nA: {a}\n")
