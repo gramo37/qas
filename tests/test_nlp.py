@@ -1,5 +1,7 @@
-from transformers import pipeline
 from typing import List
+from qas import nlp
+
+t = nlp.QuestionAnsweringNLP()
 
 industry = "IT/Software"
 tech_experience = 5
@@ -63,7 +65,13 @@ questions = [
   "How many years of experience do you have in tech?"
 ]
 
-answers = answer_questions(context, questions)
+temp = {
+    "industry": "Software Industry",
+    "preferred_location": "Pune",
+    "current_work_location": "Chennai"
+}
+
+answers = t.answer("sample2.pdf", temp, questions)
 
 for q, a in zip(questions, answers):
     print(f"Q: {q}\nA: {a}\n")

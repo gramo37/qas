@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name="qasi",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
-    install_requires=["requests"],
+    install_requires=["requests", "transformers", "spacy", "pdfminer.six"],
     author="Prasanna Gramopadhye",
     author_email="gramopadhye37@gmail.com",
     description="AI assistant for answering job application questions",
