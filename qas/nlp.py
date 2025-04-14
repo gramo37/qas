@@ -1,6 +1,6 @@
 from transformers import pipeline
 from typing import List
-from helpers import get_context
+from .get_context import ResumeParser
 from pydantic import BaseModel
 
 class basicDetailsBaseClass(BaseModel):
@@ -39,7 +39,7 @@ class QuestionAnsweringNLP:
         return context
 
     def answer(self, resume_path: str, basicDetails, questions: List[str]) -> List[str]:
-        parser = get_context.ResumeParser(resume_path)
+        parser = ResumeParser(resume_path)
         context = self.create_context(parser.extract_all(), basicDetails)
         self._load_model()
         answers = []

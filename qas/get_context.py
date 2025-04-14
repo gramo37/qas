@@ -2,12 +2,12 @@ from pdfminer.high_level import extract_text
 import spacy
 
 
-from helpers.basic_details import extract_contact_number, extract_name, extract_email
-from helpers.skills import extract_skills
-from helpers.education import extract_education
-from helpers.company_name import extract_company_names, extract_total_experience
-from helpers.designation import extract_section_designations
-from helpers.constants import skills_list, designations_list, company_suffixes
+from .basic_details import extract_contact_number, extract_name, extract_email
+from .skills import extract_skills
+from .education import extract_education
+from .company_name import extract_company_names, extract_total_experience
+from .designation import extract_section_designations
+from .constants import skills_list, designations_list, company_suffixes
 
 # spacy pdfminer.six
 
